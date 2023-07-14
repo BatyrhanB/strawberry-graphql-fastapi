@@ -1,2 +1,2 @@
 from .base_model import Base
-#from ..auth.models import User
+from src.auth.models import User

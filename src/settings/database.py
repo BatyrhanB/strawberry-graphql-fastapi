@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from src.settings.config import settings
 from src.auth import User
 
+
 engine = create_async_engine(settings.SQLALCHEMY_DATABASE_URI, future=True, echo=True,
                              execution_options={"isolation_level": "AUTOCOMMIT"})
 

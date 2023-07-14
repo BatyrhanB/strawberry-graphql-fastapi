@@ -23,7 +23,7 @@ class Settings(BaseSettings):
             return v
         raise ValueError(v)
 
-    PROJECT_NAME: str = "SaleHub"
+    PROJECT_NAME: str = "Strawberry"
 
     POSTGRES_SERVER: str = config("POSTGRES_SERVER")
     POSTGRES_USER: str = config("POSTGRES_USER")

@@ -1,4 +1,5 @@
 from typing import AsyncGenerator
+from contextlib import asynccontextmanager
 
 from fastapi import Depends
 from fastapi_users.db import SQLAlchemyUserDatabase
@@ -13,7 +14,7 @@ engine = create_async_engine(settings.SQLALCHEMY_DATABASE_URI, future=True, echo
 
 async_session_maker = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
-
+@asynccontextmanager
 async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
     async with async_session_maker() as session:
         yield session

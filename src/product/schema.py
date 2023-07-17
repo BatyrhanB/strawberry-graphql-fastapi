@@ -1,35 +1,35 @@
-from pydantic import BaseModel
+import strawberry
 
 
-class ProductBase(BaseModel):
+@strawberry.type
+class ProductBase():
     title: str
     description: str | None = None
 
 
+@strawberry.type
 class ProductCreate(ProductBase):
     pass
 
 
+@strawberry.type
 class Product(ProductBase):
     id: int
     category_id: int
 
-    class Config:
-        orm_mode = True
 
-
-class CategoryBase(BaseModel):
+@strawberry.type
+class CategoryBase():
     title: str
     description: str | None = None 
 
 
+@strawberry.type
 class CategoryCreate(CategoryBase):
     pass  
 
 
+@strawberry.type
 class Category(CategoryBase):
     id: int
     products : list[Product] = []
-
-    class Config:
-        orm_mode = True
